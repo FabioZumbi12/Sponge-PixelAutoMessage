@@ -73,7 +73,7 @@ public class PixelAutoMessages {
 		//reload
 		CommandSpec setline = CommandSpec.builder()
 			    .description(Text.of("Use to reload messages from file."))
-			    .permission("am.cmd.reload")
+			    .permission("pam.cmd.reload")
 			    .arguments(GenericArguments.string(Text.of("reload")))
 			    .executor((src, args) -> { {
 						if (args.<String>getOne("reload").get().equals("reload")){
