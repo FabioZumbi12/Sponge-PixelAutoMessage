@@ -22,6 +22,7 @@ import org.spongepowered.api.config.ConfigDir;
 import org.spongepowered.api.config.DefaultConfig;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.event.Listener;
+import org.spongepowered.api.event.game.GameReloadEvent;
 import org.spongepowered.api.event.game.state.GameStartedServerEvent;
 import org.spongepowered.api.event.game.state.GameStoppingServerEvent;
 import org.spongepowered.api.plugin.Plugin;
@@ -68,8 +69,7 @@ public class PixelAutoMessages {
 	}
 	
 	@Listener
-    public void onServerStart(GameStartedServerEvent event) {
-		
+    public void onServerStart(GameStartedServerEvent event) {		
 		//reload
 		CommandSpec setline = CommandSpec.builder()
 			    .description(Text.of("Use to reload messages from file."))
@@ -97,6 +97,14 @@ public class PixelAutoMessages {
 		
 		//done
 		logger.info(toColor("&aPixelAutoMessages enabled!&r"));
+	}
+	
+	@Listener
+    public void onReloadPlugins(GameReloadEvent event) {
+		//reload config
+		initConfig();
+		//reload messages
+		initMessages();
 	}
 	
 	private void initMessages(){
