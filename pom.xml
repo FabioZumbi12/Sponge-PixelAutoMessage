@@ -4,11 +4,11 @@
 
   <groupId>br.net.fabiozumbi12</groupId>
   <artifactId>PixelAutoMessages</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
 
   <name>PixelAutoMessages</name>
-  <url>http://maven.apache.org</url>
+  <url>https://forums.spongepowered.org/t/loud-sound-pixelautomessages-v1-0-1-8-9-1-11-2</url>
   
  <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

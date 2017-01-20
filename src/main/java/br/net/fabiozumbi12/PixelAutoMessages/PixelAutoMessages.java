@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
@@ -116,11 +117,14 @@ public class PixelAutoMessages {
 		
 		int interval = config.getNode("configs","interval").getInt(60);
 		int total = config.getNode("messages").getChildrenMap().keySet().size();
-		logger.info("Total"+total);
 		String prefix = config.getNode("configs","prefix").getString();
+		boolean rand = config.getNode("configs","random").getBoolean();
 		
 		task = game.getScheduler().createTaskBuilder().interval(interval, TimeUnit.SECONDS).execute(t -> {
 			String indstr = String.valueOf(index);
+			if (rand && total > 0){
+				indstr = String.valueOf(new Random().nextInt(total));
+			} 
 			if (config.getNode("messages",indstr).hasMapChildren()){
 				String msg = config.getNode("messages",indstr,"a-message").getString();				
 				int players = config.getNode("messages",indstr,"b-players-online").getInt();
@@ -195,6 +199,7 @@ public class PixelAutoMessages {
 						
 			config.getNode("configs","prefix").setValue(config.getNode("configs","prefix").getString("&7[&aAutoMessage&7]&r "));
 			config.getNode("configs","interval").setValue(config.getNode("configs","interval").getInt(60));
+			config.getNode("configs","random").setValue(config.getNode("configs","random").getBoolean(false));
 			
 			config.getNode("messages").setComment("Set you messages here! Follow the example and add numbers as index for more messages. \n"
 					+ "All fields (except permission) accept the player placeholder {player}.\n"
