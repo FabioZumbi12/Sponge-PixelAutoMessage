@@ -37,7 +37,7 @@ import com.google.inject.Inject;
 
 @Plugin(id = "pixelautomessages", 
 name = "PixelAutoMessages", 
-version = "1.0.0",
+version = "1.0.2",
 authors="FabioZumbi12", 
 description="A plugin to send automatic and scheduled messages to chat.")
 public class PixelAutoMessages {
