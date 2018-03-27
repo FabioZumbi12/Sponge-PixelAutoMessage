@@ -1,4 +1,4 @@
-##PixelAutoMessage
+## PixelAutoMessage
 
 PixelAutoMessage send messages to all player on configured time with all JSON events available on SpongeAPI.
 
