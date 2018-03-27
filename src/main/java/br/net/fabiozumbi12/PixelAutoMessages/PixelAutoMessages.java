@@ -37,15 +37,12 @@ import com.google.inject.Inject;
 
 @Plugin(id = "pixelautomessages", 
 name = "PixelAutoMessages", 
-version = "1.0.2",
+version = "1.0.3",
 authors="FabioZumbi12", 
 description="A plugin to send automatic and scheduled messages to chat.")
 public class PixelAutoMessages {
 	
 	@Inject private Logger logger;
-	public Logger getLogger(){	
-		return logger;
-	}
 	
 	@Inject
 	@ConfigDir(sharedRoot = true)
@@ -162,7 +159,7 @@ public class PixelAutoMessages {
 						url = url.replace("{player}", p.getName());
 						try {
 							send.onClick(TextActions.openUrl(new URL(url)));
-						} catch (Exception e) {}
+						} catch (Exception ignored) {}
 					}	
 					if (!scmd.isEmpty()){
 						scmd = scmd.replace("{player}", p.getName());
@@ -246,6 +243,6 @@ public class PixelAutoMessages {
     }
 	
 	public static String toColor(String str){
-    	return str.replaceAll("(&([a-fk-or0-9]))", "\u00A7$2"); 
+    	return str.replaceAll("(&([a-fA-FK-Ok-orR0-9]))", "\u00A7$2");
     }
 }

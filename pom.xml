@@ -4,7 +4,7 @@
 
   <groupId>br.net.fabiozumbi12</groupId>
   <artifactId>PixelAutoMessages</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <packaging>jar</packaging>
 
   <name>PixelAutoMessages</name>
@@ -12,7 +12,7 @@
   
  <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spongeVersion>6.0.0-SNAPSHOT</spongeVersion>
+    <spongeVersion>8.0.0-SNAPSHOT</spongeVersion>
   </properties>
   
   <scm>
